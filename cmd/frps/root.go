@@ -65,7 +65,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "./frps.ini", "config file of frps")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "/Users/hujinwen/codes/hu-jinwen/frp/conf/frps.ini", "config file of frps")
 	rootCmd.PersistentFlags().BoolVarP(&showVersion, "version", "v", false, "version of frps")
 
 	rootCmd.PersistentFlags().StringVarP(&bindAddr, "bind_addr", "", "0.0.0.0", "bind address")

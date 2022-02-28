@@ -61,7 +61,7 @@ func toggleAirplaneMode() {
 }
 
 func main() {
-	go toggleAirplaneMode()
+	//go toggleAirplaneMode()
 
 	crypto.DefaultSalt = "frp"
 	rand.Seed(time.Now().UnixNano())

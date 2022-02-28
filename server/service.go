@@ -350,10 +350,12 @@ func (svr *Service) handleConnection(ctx context.Context, conn net.Conn) {
 			})
 			conn.Close()
 		}
+		fmt.Println("进入了Login分支，并执行完毕")
 	case *msg.NewWorkConn:
 		if err := svr.RegisterWorkConn(conn, m); err != nil {
 			conn.Close()
 		}
+		fmt.Println("进入了NewWorkConn分支，并执行完毕")
 	case *msg.NewVisitorConn:
 		if err = svr.RegisterVisitorConn(conn, m); err != nil {
 			xl.Warn("register visitor conn error: %v", err)
@@ -368,9 +370,11 @@ func (svr *Service) handleConnection(ctx context.Context, conn net.Conn) {
 				Error:     "",
 			})
 		}
+		fmt.Println("进入了NewVisitorConn分支，并执行完毕")
 	default:
 		log.Warn("Error message type for the new connection [%s]", conn.RemoteAddr().String())
 		conn.Close()
+		fmt.Println("进入了default分支，并执行完毕")
 	}
 }
 
@@ -418,6 +422,7 @@ func (svr *Service) HandleListener(l net.Listener) {
 						session.Close()
 						return
 					}
+					fmt.Println("执行了。。。")
 					go svr.handleConnection(ctx, stream)
 				}
 			} else {

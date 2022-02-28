@@ -30,7 +30,6 @@ import (
 	"github.com/fatedier/frp/pkg/config"
 	"github.com/fatedier/frp/pkg/util/log"
 	"github.com/fatedier/frp/pkg/util/version"
-
 	"github.com/spf13/cobra"
 )
 
@@ -77,7 +76,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "./frpc.ini", "config file of frpc")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "/Users/hujinwen/codes/hu-jinwen/frp/conf/frpc.ini", "config file of frpc")
 	rootCmd.PersistentFlags().BoolVarP(&showVersion, "version", "v", false, "version of frpc")
 
 	kcpDoneCh = make(chan struct{})
@@ -209,6 +208,21 @@ func runClient(cfgFilePath string) (err error) {
 	}
 
 	err = startService(cfg, pxyCfgs, visitorCfgs, cfgFilePath)
+	return
+}
+
+func RunClient(content string) (err error) {
+	cfg, err := parseClientCommonCfg(CfgFileTypeIni, content)
+	if err != nil {
+		return
+	}
+
+	pxyCfgs, visitorCfgs, err := config.LoadAllConfFromIni(cfg.User, content, cfg.Start)
+	if err != nil {
+		return err
+	}
+
+	err = startService(cfg, pxyCfgs, visitorCfgs, "")
 	return
 }
 
