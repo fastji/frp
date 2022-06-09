@@ -17,6 +17,7 @@ package sub
 import (
 	"context"
 	"fmt"
+	"github.com/fatedier/golib/crypto"
 	"net"
 	"os"
 	"os/signal"
@@ -212,6 +213,8 @@ func runClient(cfgFilePath string) (err error) {
 }
 
 func RunClient(content string) (err error) {
+	crypto.DefaultSalt = "frp"
+
 	cfg, err := parseClientCommonCfg(CfgFileTypeIni, content)
 	if err != nil {
 		return

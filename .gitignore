@@ -37,3 +37,6 @@ dist/
 
 # idea 配置
 .idea
+
+# logs
+frp*.log

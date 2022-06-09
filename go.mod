@@ -33,7 +33,7 @@ require (
 	github.com/vaughan0/go-ini v0.0.0-20130923145212-a98ad7ee00ec
 	github.com/xtaci/lossyconn v0.0.0-20190602105132-8df528c0c9ae // indirect
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550 // indirect
-	golang.org/x/mobile v0.0.0-20220112015953-858099ff7816 // indirect
+	golang.org/x/mobile v0.0.0-20220518205345-8578da9835fd // indirect
 	golang.org/x/net v0.0.0-20210805182204-aaa1db679c0d
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
 	golang.org/x/sys v0.0.0-20210809222454-d867a43fc93e // indirect
